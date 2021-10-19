@@ -1,7 +1,7 @@
 import galleryItems from './gallery-items.js';
 
 import refs from './get-refs.js';
-const { gallery, lightbox, lightboxOverlay, lightboxContent, lightboxImg, lightboxCloseBtn } = refs;
+const { gallery, lightbox, lightboxOverlay, lightboxImg, lightboxCloseBtn } = refs;
 
 const galleryMarkup = createGalleryMarkup(galleryItems);
 gallery.insertAdjacentHTML('afterbegin', galleryMarkup);
@@ -52,13 +52,13 @@ function onEscClose(e) {
 }
 
 function onArrowPress(e) {
-  if (e.code === 'ArrowRight') nextImg(e);
-  if (e.code === 'ArrowLeft') previousImg(e);
+  if (e.code === 'ArrowRight') nextImg();
+  if (e.code === 'ArrowLeft') previousImg();
 }
 
 let currentIndex = 0;
 
-function nextImg(e) {
+function nextImg() {
   galleryItems.forEach((item, i) => {
     if (lightboxImg.src === item.original) currentIndex = i + 1;
   });
@@ -67,7 +67,7 @@ function nextImg(e) {
   setModalImage(currentIndex);
 }
 
-function previousImg(e) {
+function previousImg() {
   galleryItems.forEach((item, i) => {
     if (lightboxImg.src === item.original) currentIndex = i - 1;
   });
