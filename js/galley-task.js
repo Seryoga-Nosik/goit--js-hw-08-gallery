@@ -14,15 +14,15 @@ function createGalleryMarkup(items) {
   return items
     .map(({ preview, original, description }, i) => {
       return `
-    <li class="gallery__item">
-        <a class="gallery__link" href='${original}'>
+        <li class="gallery__item">
+          <a class="gallery__link" href='${original}'>
             <img class="gallery__image"
-            src='${preview}' 
-            data-source='${original}' 
-            alt='${description}'
-            i=${i} />
-        </a>
-    </li>`;
+              src='${preview}' 
+              data-source='${original}' 
+              alt='${description}'
+              i=${i} />
+          </a>
+        </li>`;
     })
     .join('');
 }
@@ -43,7 +43,7 @@ function onModalClose() {
   lightbox.classList.remove('is-open');
   lightboxImg.src = '';
   lightboxImg.alt = '';
-  window.removeEventListener('keydown', onModalClose);
+  window.removeEventListener('keydown', onEscClose);
   window.removeEventListener('keydown', onArrowPress);
 }
 
